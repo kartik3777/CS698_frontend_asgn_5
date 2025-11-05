@@ -1,0 +1,475 @@
+/* --- Existing Styles (From Your File) --- */
+:root {
+  --primary-color: #4a90e2;
+  --bg-color: #f4f7f6;
+  --card-bg: #ffffff;
+  --text-color: #333;
+  --light-text: #555;
+  --border-color: #e0e0e0;
+  --green: #2ecc71;
+  --red: #e74c3c;
+  --blue: #3498db;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--light-text);
+  font-weight: 300;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.input-section {
+  position: sticky;
+  top: 20px;
+  align-self: flex-start;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--light-text);
+  display: flex;
+  align-items: center;
+}
+
+.form-group input {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+.predict-btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.predict-btn:hover:not(:disabled) {
+  background-color: #357abd;
+}
+
+.predict-btn:disabled {
+  background-color: #b0c4de;
+  cursor: not-allowed;
+}
+
+.loading-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  color: var(--light-text);
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.result-card h2, .explanation-card h2, .fairness-card h2, .info-card h2 {
+  margin-top: 0;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.75rem;
+  color: var(--primary-color);
+}
+
+.outcome-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.outcome-header.graduate { background-color: rgba(46, 204, 113, 0.1); }
+.outcome-header.dropout { background-color: rgba(231, 76, 60, 0.1); }
+.outcome-header.enrolled { background-color: rgba(52, 152, 219, 0.1); }
+
+.outcome-icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.outcome-text {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.confidence-section {
+  width: 100%;
+}
+
+.confidence-bar-container {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  height: 1.5rem;
+}
+
+.confidence-bar-fill {
+  height: 100%;
+  background-color: var(--primary-color);
+  transition: width 0.5s ease-out;
+}
+
+.confidence-section {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.prob-bar-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 60px;
+  gap: 1rem;
+  align-items: center;
+}
+
+.prob-bar-row label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+.prob-bar-row span {
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.info-card p {
+  line-height: 1.6;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.metric-item {
+  background: var(--bg-color);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.metric-item p {
+  margin: 0;
+  font-weight: 600;
+  color: var(--light-text);
+  display: flex;
+  align-items: center;
+}
+
+.metric-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color) !important;
+  margin-top: 0.5rem !important;
+}
+
+.red-text { color: var(--red) !important; }
+.green-text { color: var(--green) !important; }
+
+/* Tooltip */
+.tooltip-container {
+  position: relative;
+  display: inline-flex;
+  margin-left: 8px;
+  cursor: help;
+}
+.tooltip-icon {
+  font-size: 0.8rem;
+  border: 1.5px solid #aaa;
+  color: #aaa;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+.tooltip-text {
+  visibility: hidden;
+  width: 220px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -110px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* --- NEW STYLES FOR EXPLANATIONS --- */
+
+.section-divider {
+  border: 0;
+  height: 2px;
+  background: var(--border-color);
+  margin: 2rem 0;
+}
+
+.explanation-card {
+  /* Inherits from .card */
+}
+
+.action-message {
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.action-list {
+  list-style-type: '➡️';
+  padding-left: 1.5rem;
+}
+
+.action-list li {
+  padding-left: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.05rem;
+}
+
+.importance-list {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+}
+.importance-list li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Tabs */
+.explanation-tabs {
+  display: flex;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.tab-btn {
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--light-text);
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+}
+
+.tab-btn.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+/* Impact Chart */
+.impact-chart {
+  padding: 1rem 0;
+}
+
+.impact-chart h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+.chart-note {
+  font-size: 0.9rem;
+  color: var(--light-text);
+  margin-top: 0;
+}
+.chart-legend {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.legend-item {
+  margin-right: 1rem;
+}
+.legend-item.positive::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: var(--green);
+  border-radius: 3px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.legend-item.negative::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: var(--red);
+  border-radius: 3px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.impact-bar-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 60px;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.bar-label {
+  font-weight: 500;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bar-container {
+  background: var(--bg-color);
+  border-radius: 4px;
+  height: 20px;
+}
+
+.impact-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease-out;
+}
+.impact-bar.positive {
+  background: var(--green);
+}
+.impact-bar.negative {
+  background: var(--red);
+  /* Since width is always positive, we use float/direction to flip */
+  float: right;
+}
+.bar-value {
+  font-weight: 600;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+
+/* Advanced Math section */
+.advanced-math {
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+  border: 1px solid var(--border-color);
+}
+.advanced-math pre {
+  background: #eef;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+.advanced-math hr {
+  border: 0;
+  height: 1px;
+  background: var(--border-color);
+}
