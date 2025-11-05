@@ -81,12 +81,8 @@ http://localhost:3000
 In `App.js`, update:
 
 ```js
-const API_BASE_URL = "https://your-backend-url.com";
+const API_BASE_URL = "https://cs698-a3-2.onrender.com";
 ```
-
-Replace this with your deployed backend API URL (Render, Vercel, etc.).
-
----
 
 ## 🧬 Folder Structure
 
@@ -142,57 +138,11 @@ This project helps demonstrate:
 - Transparent predictions
 - Bias mitigation by design
 
-Perfect for:
-- Academic submissions
-- Human-centered AI courses
-- ML explainability demonstrations
-
----
-
-## 📁 Deployment
-
-Recommended hosting:
-
-Frontend:
-- Vercel
-- Netlify
-
-Backend:
-- Render
-- Railway
-- GCP/AWS/Azure
-
-Make sure CORS is enabled server-side.
-
----
-
-## ✨ Future Ideas
-
-- Login + saved reports
-- Audit logs
-- Bias heatmaps
-- Additional outcome classes
-- Chat-style explanation assistant
-
----
-
-## 🤝 Contributions
-
-Pull requests are welcome!
-
----
-
-## 📜 License
-
-MIT License.
-
 ---
 
 ## 🧑 Author
 
-Built by **can xiaoye** 👨‍💻  
-IIT Kanpur (CSE)
+Built by Kartik and Mohd Nasar Siddiqui
 
----
 
-Happy hacking and safe AI! 🎉
+
