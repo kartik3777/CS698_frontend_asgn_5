@@ -1,70 +1,198 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 🎓 Fair Student Outcome Predictor (Frontend)
 
-## Available Scripts
+This project is a React-based web application that predicts a student's academic outcome (e.g., Graduate or Dropout) using an explainable AI model.  
+It communicates with a backend API (XGBoost classifier) and provides rich interpretability through:
 
-In the project directory, you can run:
+✅ Global explanations (model behavior overall)  
+✅ Local explanations (why THIS student gets this prediction)  
+✅ Actionable suggestions (how to improve)  
+✅ Confidence probabilities  
+✅ Interactive SHAP-based impact charts  
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 🔮 Prediction
+- Enter student demographic, academic, and economic fields.
+- Predict whether the student is likely to **Graduate** or **Dropout**.
 
-### `npm test`
+### 🧠 Explainability
+- Visual bar charts showing which features increased/decreased the prediction probability.
+- Tabs explaining:
+  - “Why Graduate?”
+  - “Why Not Graduate?”
+  - Etc.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🏛️ Global Model Summary
+- Shows how the model was trained
+- Displays feature importance (SHAP values)
+- Displays fairness/performance metrics such as:
+  - Test Accuracy
+  - Weighted F1 Score
 
-### `npm run build`
+### 🧩 Actionable Explanations
+Concrete recommendations based on:
+- Admission grade
+- Course performance
+- Evaluation count
+- Etc.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🧪 "What-if" analysis
+Adjust values and re-predict instantly.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🧾 Requirements
 
-### `npm run eject`
+- Node.js ≥ 16.x
+- NPM or Yarn
+- Backend API running (Python/FastAPI recommended)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📦 Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+git clone <repo-url>
+cd frontend
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## ▶️ Run Development Server
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The app automatically opens at:
 
-### Code Splitting
+```
+http://localhost:3000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 🔗 API Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+In `App.js`, update:
 
-### Making a Progressive Web App
+```js
+const API_BASE_URL = "https://your-backend-url.com";
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Replace this with your deployed backend API URL (Render, Vercel, etc.).
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🧬 Folder Structure
 
-### Deployment
+```
+src/
+│
+├─ App.js              # Main application logic
+├─ App.css             # Styling
+├─ components/         # (Optional future expansion)
+└─ assets/             # Images/icons
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## 🧑‍💻 Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **React**
+- **Axios** (REST communication)
+- **XGBoost backend**
+- **Explainable AI**
+- **SHAP values**
+- **Fairness inspection**
+
+---
+
+## 🎨 UI Highlights
+
+- Responsive form layout with tooltips
+- Interactive probability bars
+- Collapsible advanced math section
+- Smooth scroll into results
+
+---
+
+## 🔍 Explainability Tabs
+
+Each class tab answers:
+
+- “WHY Graduate?”
+- “WHY Dropout?”
+- “WHY NOT Graduate?”
+- etc.
+
+Bars represent the magnitude of push (toward or away).
+
+---
+
+## 🛂 Fairness & Transparency
+
+This project helps demonstrate:
+
+- Ethical AI workflows
+- Transparent predictions
+- Bias mitigation by design
+
+Perfect for:
+- Academic submissions
+- Human-centered AI courses
+- ML explainability demonstrations
+
+---
+
+## 📁 Deployment
+
+Recommended hosting:
+
+Frontend:
+- Vercel
+- Netlify
+
+Backend:
+- Render
+- Railway
+- GCP/AWS/Azure
+
+Make sure CORS is enabled server-side.
+
+---
+
+## ✨ Future Ideas
+
+- Login + saved reports
+- Audit logs
+- Bias heatmaps
+- Additional outcome classes
+- Chat-style explanation assistant
+
+---
+
+## 🤝 Contributions
+
+Pull requests are welcome!
+
+---
+
+## 📜 License
+
+MIT License.
+
+---
+
+## 🧑 Author
+
+Built by **can xiaoye** 👨‍💻  
+IIT Kanpur (CSE)
+
+---
+
+Happy hacking and safe AI! 🎉
